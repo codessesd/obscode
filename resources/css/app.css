@@ -1,7 +1,24 @@
+/* Custom fonts seem to work if imported before @tailwind */
+
+/* font-family: 'Raleway', sans-serif; Weight 400*/
+/* @import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap'); */
+
+/* font-family: 'Raleway', sans-serif; Weight 400,800,900 */
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;800;900&display=swap');
+
+/* font-family: 'Sanchez', serif;*/
+@import url('https://fonts.googleapis.com/css2?family=Sanchez&display=swap');
+
+/* font-family: 'League Spartan', sans-serif; */
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&display=swap');
+
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+
 [x-cloak] {
     display: none;
 }
+
