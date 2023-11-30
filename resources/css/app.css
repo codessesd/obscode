@@ -22,3 +22,17 @@
     display: none;
 }
 
+.animate-page-enter{
+  position: relative;
+  animation: slide-up 0.5s ease-in-out ;
+}
+
+@keyframes slide-up{
+  from{opacity: 0; top:200px}
+  to{opacity: 1; top:0px}
+}
+
+.full-height-header{
+  /* height: calc(100vh - 120px); */
+  /* min-height: 230px; */
+}

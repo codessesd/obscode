@@ -25,6 +25,8 @@ use Inertia\Inertia;
 // });
 
 Route::inertia('/','Index');
+Route::inertia('/services','Services');
+Route::inertia('/pricing','Pricing');
 
 Route::middleware([
     'auth:sanctum',

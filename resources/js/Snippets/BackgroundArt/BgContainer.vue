@@ -1,5 +1,5 @@
 <template>
-  <div class="blurFilter bgArt absolute top-0 left-0 h-screen w-screen filter overflow-hidden">
+  <div class="blurFilter bgArt absolute top-0 left-0 h-screen w-full filter overflow-hidden">
     <div v-for="sty in styleObjects">
       <BgCircle1
       :style="sty.positioning"

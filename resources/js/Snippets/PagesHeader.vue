@@ -1,0 +1,37 @@
+<template>
+  <div class="">
+    <!-- Services header -->
+    <div class="full-height-header min-h-[230px] h-screen-minus-120 flex rounded-3xl p-5">
+      <div class="flex-1 flex justify-center top-10" :class="{'items-center':bigHeight}">
+        <div class="text-center pb-48">
+          <h1 class="text-7xl text-red-300 font-bold mb-8">{{ bigText }}</h1>
+          <p class="text-2xl font-bold">{{ subText }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  </template>
+  <script setup>
+  import { onBeforeUnmount, onMounted, ref } from 'vue';
+
+  defineProps({bigText : {type:String, default:'My Header'},
+              subText : {type:String, default:'My subtext is a Lorem ipsum dolor sit amet, consectetur adipiscing elit.'}
+              });
+  
+  const viewPortHeight = ref(window.innerHeight);
+  const bigHeight = ref(window.innerHeight > 514);
+  
+  const updateHeight = () => {
+    viewPortHeight.value = window.innerHeight;
+    bigHeight.value = window.innerHeight > 514;
+  };
+  
+  onMounted(() => {
+    window.addEventListener('resize', updateHeight);
+    updateHeight();
+  });
+  
+  onBeforeUnmount(() => {
+    window.removeEventListener('resize', updateHeight);
+  });
+  </script>

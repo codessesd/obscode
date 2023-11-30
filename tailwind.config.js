@@ -19,6 +19,9 @@ export default {
                 sanchez: ['Sanchez'],
                 spartan: ['League Spartan']
             },
+            height:{
+                'screen-minus-120': 'calc(100vh - 230px)'
+            }
         },
     },
 
