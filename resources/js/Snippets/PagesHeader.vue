@@ -4,8 +4,9 @@
     <div class="full-height-header min-h-[230px] h-screen-minus-120 flex rounded-3xl p-5">
       <div class="flex-1 flex justify-center top-10" :class="{'items-center':bigHeight}">
         <div class="text-center pb-48">
-          <h1 class="text-7xl text-red-300 font-bold mb-8">{{ bigText }}</h1>
-          <p class="text-2xl font-bold">{{ subText }}</p>
+          <h1 class="text-7xl  font-bold mb-8">{{ bigText }}<span class="text-red-400">{{ redLetter }}</span></h1>
+          <!-- <div class="h-[2px] w-full bg-gradient-to-r from-red-400 to-purple-400 rounded-full my-6"></div> -->
+          <p class="text-lg">{{ subText }}</p>
         </div>
       </div>
     </div>
@@ -15,7 +16,8 @@
   import { onBeforeUnmount, onMounted, ref } from 'vue';
 
   defineProps({bigText : {type:String, default:'My Header'},
-              subText : {type:String, default:'My subtext is a Lorem ipsum dolor sit amet, consectetur adipiscing elit.'}
+              subText : {type:String, default:'My subtext is a Lorem ipsum dolor sit amet, consectetur adipiscing elit.'},
+              redLetter: {type:String, default: ''},
               });
   
   const viewPortHeight = ref(window.innerHeight);

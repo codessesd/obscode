@@ -13,15 +13,12 @@
           <span class="hover:text-red-400 hover:text-[10rem] transition-all">T</span>ech <span class="hover:text-red-400 hover:text-[10rem] transition-all">d</span>oesn'<span class="hover:text-red-400 hover:text-[10rem] transition-all">t</span>
           <br> h<span class="hover:text-red-400 hover:text-[10rem] transition-all">a</span>ve t<span class="hover:text-red-400 hover:text-[10rem] transition-all">o</span> fe<span class="hover:text-red-400 hover:text-[10rem] transition-all">e</span>l
           <br> c<span class="hover:text-red-400 hover:text-[10rem] transition-all">o</span>m<span class="hover:text-red-400 hover:text-[10rem] transition-all">p</span>lica<span class="hover:text-red-400 hover:text-[10rem] transition-all">t</span>ed</h1>
-        <h3 class="sub-text text-2xl font-sanchez uppercase mt-6">Simplified Web Solutions</h3>
+        <h3 class="sub-text text-xl font-sanchez uppercase mt-6">Simplified Web Solutions</h3>
       </div>
       <div class="big-graphic w-4/12 relative z-0">
         <img class="big-graphic-img w-[500px]" src="/graphics/10.png" alt="graphic">
       </div>
     </div>
-    <!-- navigation -->
-    <!-- <NavigationColourBottom></NavigationColourBottom> -->
-    
   </div>
 </template>
 <script setup>

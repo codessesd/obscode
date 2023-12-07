@@ -1,8 +1,8 @@
 <template>
   <div class="buttons-container flex">
     <span v-for="item in menuItems">
-      <Link rel="prefetch" :href="item.url" as="button" class="nav-btn w-28 overflow-hidden mr-3 active:text-black ease-in-out delay-150 hover:-translate-y-0 hover:scale-110 duration-300 drop-shadow-lg
-        font-sanchez text-black py-[1px] px-[1px] rounded-md"
+      <Link :href="item.url" as="button" class="nav-btn w-28 overflow-hidden mr-3 active:text-black ease-in-out delay-150 hover:-translate-y-0 hover:scale-110 duration-300 drop-shadow-lg
+        text-black py-[1px] px-[1px] rounded-md"
         :class="[item.active ? activeClass : normalClass]"
         >
         <p class="bg-white h-full py-[4px] w-full rounded-[5px]">

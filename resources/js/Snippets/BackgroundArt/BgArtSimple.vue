@@ -1,10 +1,10 @@
 <template>
   <div class="bgArt fixed top-0 left-0 h-1 w-full filter -z-10" :class="[showHardBlur ? 'blur-filter-50' : 'blur-filter-10']">
     <!-- Circles -->
-    <div class="circle-1 absolute rounded-full w-[300px] h-[300px] bg-[#ff0066] top-[50px] left-[100px]"></div>
+    <div class="circle-1 absolute rounded-full w-[400px] h-[400px] bg-[#ff0000] top-[50px] left-[100px]"></div>
     <!-- <div class="circle-2 absolute rounded-full w-[600px] h-[600px] bg-[#ff3399] top-[50px] left-[500px]"></div> -->
-    <div class="circle-3 absolute rounded-full w-[300px] h-[300px] bg-[#ff33cc] top-[20px] left-[1100px]"></div>
-    <div class="circle-4 absolute rounded-full w-[200px] h-[200px] bg-[#ff0000] top-[100px] left-[500px]"></div>
+    <div class="circle-4 absolute rounded-full w-[200px] h-[200px] bg-[#ff00d9] top-[100px] left-[600px]"></div>
+    <div class="circle-3 absolute rounded-full w-[300px] h-[300px] bg-[#6933ff] top-[20px] left-[1100px]"></div>
 
     <!-- Filter -->
     <div class="absolute top-0 left-0 bg-white/70 h-screen w-full">
@@ -39,21 +39,21 @@
 }
 
 @keyframes animation-1 {
-  0% {top: 50px; background-color: #ff3333}
-  50% {top: 400px; background-color: #ff3333}
-  100% {top: 50px; background-color: #ff3333}
+  0% {top: 50px;}
+  50% {top: 400px;}
+  100% {top: 50px;}
 }
 
 @keyframes animation-2 {
-  0% {top: 50px; background-color: #f70178}
-  25% {top: 0px; background-color: #4701f7}
-  50% {top: 200px; background-color: #f70178}
-  100% {top: 50px; background-color: #4701f7}
+  0% {top: 50px;}
+  25% {top: 0px;}
+  50% {top: 200px;}
+  100% {top: 50px;}
 }
 @keyframes animation-3 {
-  0% {top: 20px; background-color: #a333ff}
-  50% {top: 400px; background-color: #5599ff}
-  100% {top: 20px; background-color: #a333ff}
+  0% {top: 20px;}
+  50% {top: 400px;}
+  100% {top: 20px;}
 }
 @keyframes animation-4 {
   0% {top: 100px;}

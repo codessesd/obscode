@@ -11,7 +11,7 @@
       <Transition name="fade">
         <div v-show="!isHomePage" class="h-20 flex items-center">
           <NavigationColourTop
-          :menuItems="navItems">
+          :menuItems="menuItems">
           </NavigationColourTop>
         </div>
       </Transition>
@@ -23,7 +23,7 @@
     <Transition name="scale">
       <div v-show="isHomePage" class="fixed bottom-0 left-0 pl-16 pb-10 z-20">
         <NavigationColourBottom
-          :menuItems = "navItems">
+          :menuItems = "menuItems">
         </NavigationColourBottom>
       </div>
     </Transition>
@@ -41,15 +41,15 @@ import { usePage } from "@inertiajs/vue3";
 
 let isHomePage = ref(usePage().url == '/')
 
-let navItems = ref([{label : 'Home', url : '/', active : usePage().url == '/'},
+let menuItems = ref([{label : 'Home', url : '/', active : usePage().url == '/'},
+                      {label : 'Products', url : '/pricing', active : usePage().url.startsWith('/pricing')},
                       {label : 'Services', url : '/services', active : usePage().url.startsWith('/services')},
-                      {label : 'Pricing', url : '/pricing', active : usePage().url.startsWith('/pricing')}
                     ]);
 
 watch(()=>usePage().url,(pageUrl)=>{
-    navItems.value = [{label : 'Home', url : '/', active : pageUrl == '/'},
+    menuItems.value = [{label : 'Home', url : '/', active : pageUrl == '/'},
+              {label : 'Products', url : '/pricing', active : pageUrl.startsWith('/pricing')},
               {label : 'Services', url : '/services', active : pageUrl.startsWith('/services')},
-              {label : 'Pricing', url : '/pricing', active : pageUrl.startsWith('/pricing')}
              ];
     isHomePage = usePage().url == '/'
   });
