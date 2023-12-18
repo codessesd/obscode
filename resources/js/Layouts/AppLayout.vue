@@ -30,23 +30,20 @@
       <slot></slot>
     </div>
     <!-- Bottom Navigation Desktop -->
-    <!-- <Transition name="scale">
-      <div v-show="isHomePage" class="nav-bottom fixed bottom-0 left-0 pb-10 z-20">
+    <Transition name="scale">
+      <div v-show="isHomePage" class="nav-bottom fixed bottom-0 left-0 pb-10 z-20 max-[768px]:hidden">
         <NavigationColourBottom
           :menuItems = "menuItems">
         </NavigationColourBottom>
       </div>
-    </Transition> -->
+    </Transition>
     <!-- Bottom Navigation Mobile -->
-    <Transition name="scale">
-      <div class="fixed w-full bottom-14 h-3">
-        <div v-show="isHomePage" class="min-[769px]:hidden">
+    <Transition name="slide">
           <NavMobileBottom
+          v-show="isHomePage" class="min-[769px]:hidden"
             :menuItems = "menuItems"
           >
           </NavMobileBottom>
-        </div>
-      </div>
     </Transition>
     <Footer v-if="!isHomePage"></Footer>
   </div>
@@ -107,5 +104,16 @@ watch(()=>usePage().url,(pageUrl)=>{
 
 .fade-enter-from, .fade-leave-to {
   opacity: 0;
+}
+.slide-enter-active, .slide-leave-active{
+transition: bottom 0.8s ease-in-out;
+}
+
+.slide-enter-to, .slide-leave-from{
+bottom: 0px;
+}
+
+.slide-enter-from, .slide-leave-to{
+  bottom: -100px;
 }
 </style>
