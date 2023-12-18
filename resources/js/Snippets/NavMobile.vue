@@ -22,18 +22,18 @@
     <Transition>
       <div v-if="showMobileMenu" class="fixed w-full h-full left-0 top-0 z-40">
         <div class="absolute bg-white w-full h-full left-0 top-0"></div>
-        <div class="absolute w-full h-full z-20 p-2 flex flex-col">
-          <div class="w-full flex justify-between pt-4 mt-4">
+        <div class="absolute w-full h-full z-20 p-2 grid grid-cols-2 overflow-auto">
+          <div>
             <img class="w-[150px]" src="/graphics/logo750transparent.png" @click="$inertia.visit('/')" alt="logo">
-            <div class="bg-white border border-gray-200 text-black h-7 w-9 mt-2 shadow-xl flex justify-center items-center rounded active:scale-95 active:bg-gray-200"
-            @click="showMobileMenu = false"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            </div>
           </div>
-          <ul class="pt-20 text-center">
+          <div class="bg-white justify-self-end border border-gray-200 text-black h-7 w-9 mt-2 shadow-xl flex justify-center items-center rounded active:scale-95 active:bg-gray-200"
+          @click="showMobileMenu = false"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </div>
+          <ul class="pt-20 text-center col-span-2">
             <li v-for="item in menuItems" class="p-2 font-bold text-3xl">
               <Link :href="item.url" as="button" class="w-full h-full"
                @click="showMobileMenu = false">
@@ -41,7 +41,7 @@
               </Link>
             </li>
           </ul>
-          <div class=" text-center text-sm w-full absolute bottom-0 left-0 p-2">&copy2024 Obscode</div>
+          <div class=" text-center text-sm w-full p-2 col-span-2 place-self-end pt-8">&copy2024 Obscode</div>
         </div>
       </div>
     </Transition>
