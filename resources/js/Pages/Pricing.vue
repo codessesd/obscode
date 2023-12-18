@@ -60,7 +60,7 @@ defineOptions({layout: AppLayout})
     frequency:"From",
     action: 'Get Quote',
     features:['Limited customization','First 2 hours Maintenance free','Choose own hosting provider']},
-    {title:"Custom",
+    {title:"Custom Website",
     special:"",
     description:"Get a custom website built from the ground up for fit your unique needs.",
     amount:'Custom Pricing',
@@ -86,7 +86,8 @@ const eCommerce = ref([
     currency:"",
     frequency:"",
     action: 'Get Quote',
-    features:['Free first consultaion','24/7 support','First 5 hours maintenance on us','Choose own hosting provider','Full IP ownership']},
+    features:['Free first consultaion','Shopping cart','24/7 support','First 5 hours maintenance on us','Choose own hosting provider']
+  },
   { title:"Custom",
     special:"",
     description:"Nothing fits your design? Get a custom, visually captivating design that looks exactly the way you want.",
@@ -94,7 +95,8 @@ const eCommerce = ref([
     currency:"",
     frequency:"",
     action: 'Get Quote',
-    features:['Free first consultaion','24/7 support','First 5 hours maintenance on us','Choose own hosting provider','Full IP ownership']},
+    features:['Free first consultaion','Shopping cart','24/7 support','First 5 hours maintenance on us','Choose own hosting provider','Full IP ownership']
+  },
   { title:"CRM",
     special:"",
     description:"Tailored CRM development services using cutting edge technology.",
@@ -102,7 +104,8 @@ const eCommerce = ref([
     currency:"",
     frequency:"",
     action: 'Get Quote',
-    features:['Free first consultaion','24/7 support','First 5 hours maintenance on us','Choose own hosting provider','Full IP ownership']},
+    features:['Free first consultaion','24/7 support','First 5 hours maintenance on us','Choose own hosting provider','Full IP ownership']
+  },
   
 ])    
 </script>

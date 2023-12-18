@@ -4,7 +4,7 @@
     <div class="full-height-header min-h-[230px] h-screen-minus-120 flex rounded-3xl p-5">
       <div class="flex-1 flex justify-center top-10" :class="{'items-center':bigHeight}">
         <div class="text-center pb-48">
-          <h1 class="text-7xl  font-bold mb-8">{{ bigText }}<span class="text-red-400">{{ redLetter }}</span></h1>
+          <h1 class="page-title font-bold mb-8">{{ bigText }}<span class="text-red-400">{{ redLetter }}</span></h1>
           <!-- <div class="h-[2px] w-full bg-gradient-to-r from-red-400 to-purple-400 rounded-full my-6"></div> -->
           <p class="text-lg">{{ subText }}</p>
         </div>
@@ -37,3 +37,10 @@
     window.removeEventListener('resize', updateHeight);
   });
   </script>
+
+  <style scoped>
+  .page-title{
+    /* font-size: clamp(3.2rem, 8vw,9rem); */
+    font-size: min(12vw, 7rem);
+  }
+</style>
