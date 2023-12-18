@@ -22,11 +22,11 @@
     <Transition>
       <div v-if="showMobileMenu" class="fixed w-full h-full left-0 top-0 z-40">
         <div class="absolute bg-white w-full h-full left-0 top-0"></div>
-        <div class="absolute w-full h-full overflow-auto z-20 flex flex-col">
-          <div class="w-full flex justify-between pt-4  px-2 mt-4">
-            <!-- menu logo -->
+        <div class="absolute w-full h-full z-20 grid grid-cols-2 overflow-auto">
+          <div class="pl-2 pt-10">
             <img class="w-[150px]" src="/graphics/logo750transparent.png" @click="$inertia.visit('/')" alt="logo">
-            <!-- close button -->
+          </div>
+          <div class="pr-[5%] pt-10 justify-self-end">
             <div class="bg-white border border-gray-200 text-black h-7 w-9 mt-2 shadow-xl flex justify-center items-center rounded active:scale-95 active:bg-gray-200"
             @click="showMobileMenu = false"
             >
@@ -35,17 +35,15 @@
               </svg>
             </div>
           </div>
-          <div class="grid grid-cols-1 h-full">
-            <ul class="pt-20 text-center">
-              <li v-for="item in menuItems" class="p-2 font-bold text-3xl">
-                <Link :href="item.url" as="button" class="w-full h-full"
-                 @click="showMobileMenu = false">
-                  {{ item.label }}
-                </Link>
-              </li>
-            </ul>
-            <div class=" text-center text-sm text-white w-full p-2 self-end mt-8 bg-slate-500">&copy2024 Obscode</div>
-          </div>
+          <ul class="pt-20 text-center col-span-2">
+            <li v-for="item in menuItems" class="p-2 font-bold text-3xl">
+              <Link :href="item.url" as="button" class="w-full h-full"
+               @click="showMobileMenu = false">
+                {{ item.label }}
+              </Link>
+            </li>
+          </ul>
+          <div class=" text-center text-sm text-white w-full p-2 col-span-2 place-self-end bg-slate-500">&copy2024 Obscode</div>
         </div>
       </div>
     </Transition>
