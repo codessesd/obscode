@@ -1,5 +1,5 @@
 <template>
-  <div v-for="item in items" class="border min-h-[500px] box-border transition-all rounded-3xl p-6 min-w-[320px] max-w-[400px] w-full bg-white/70 hover:border-red-400 hover:border-2 hover:scale-105">
+  <div v-for="item in items" class="animate-page-enter-flipX min-h-[500px] box-border transition-all rounded-3xl p-6 max-w-[400px] w-full bg-white/70 border hover:border-red-400 hover:border-1">
     <!-- Top part -->
     <div class="flex justify-between">
       <h1 class="font-bold text-red-400">{{ item.title }}</h1>

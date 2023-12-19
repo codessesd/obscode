@@ -1,5 +1,5 @@
 <template>
-  <div class="">
+  <div class="animate-page-enter-flipX mb-5">
     <!-- Services header -->
     <div class="full-height-header min-h-[230px] h-screen-minus-120 flex rounded-3xl p-5">
       <div class="flex-1 flex justify-center top-10" :class="{'items-center':bigHeight}">
@@ -41,6 +41,6 @@
   <style scoped>
   .page-title{
     /* font-size: clamp(3.2rem, 8vw,9rem); */
-    font-size: min(12vw, 7rem);
+    font-size: min(12vw, 5rem);
   }
 </style>

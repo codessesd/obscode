@@ -22,17 +22,27 @@
     display: none;
 }
 
-.animate-page-enter{
+.animate-page-enter-slide-up{
   position: relative;
   animation: slide-up 0.5s ease-in-out ;
 }
 
 @keyframes slide-up{
-  from{opacity: 0; top:200px}
-  to{opacity: 1; top:0px}
+  from{top:200px}
+  to{top:0px}
 }
 
-.full-height-header{
-  /* height: calc(100vh - 120px); */
-  /* min-height: 230px; */
+.animate-page-enter-flipX{
+  /* position: relative; */
+  animation: flipX 0.5s ease-in-out ;
+}
+
+@keyframes flipX{
+  from{transform: rotateX(90deg)}
+  to{transform: rotateX(0deg)}
+}
+
+@keyframes flip{
+  from{opacity: 0;}
+  to{opacity: 1;}
 }

@@ -1,9 +1,11 @@
 <template>
   <div class="layout-outer-div relative min-h-screen overflow-hidden">
-      <BgArtSimple
-        :showHardBlur="!isHomePage"
-      >
+      <BgArtSimple :showHardBlur="!isHomePage">
       </BgArtSimple>
+      <!-- <div class="h-20 w-20 fixed bg-amber-500" @click="showLoadingDiv = true"></div> -->
+      <!-- <Transition name="loadslider"> -->
+        <!-- <div v-if="showLoadingDiv" class="loading-animation fixed bg-gradient-to-br from-purple-400 to-red-400"></div> -->
+      <!-- </Transition> -->
    <!-- Top Bar -->
     <div class="top-bar top-0 w-full flex justify-between items-center h-28 z-20">
       <!-- logo -->
@@ -40,7 +42,7 @@
     <!-- Bottom Navigation Mobile -->
     <Transition name="slide">
           <NavMobileBottom
-          v-show="isHomePage" class="min-[769px]:hidden"
+            v-show="isHomePage" class="min-[769px]:hidden"
             :menuItems = "menuItems"
           >
           </NavMobileBottom>
@@ -50,7 +52,7 @@
 </template>
 
 <script setup>
-import { ref, watch } from "vue";
+import { onBeforeUpdate, onMounted, onUpdated, ref, watch } from "vue";
 import BgArtSimple from "../Snippets/BackgroundArt/BgArtSimple.vue"
 import NavigationColourBottom from "@/Snippets/NavigationColourBottom.vue";
 import NavigationColourTop from "@/Snippets/NavigationColourTop.vue";
@@ -58,6 +60,16 @@ import NavMobile from "@/Snippets/NavMobile.vue";
 import NavMobileBottom from "@/Snippets/NavMobileBottom.vue";
 import Footer from "@/Snippets/Footer.vue"
 import { usePage } from "@inertiajs/vue3";
+
+let showLoadingDiv = ref(false)
+
+console.log(usePage().url)
+watch(()=>usePage().url, (value, oldValue)=>{
+  if(value != oldValue){
+    showLoadingDiv.value = true;
+    setTimeout(()=>showLoadingDiv.value = false, 2000);
+  }
+})
 
 let isHomePage = ref(usePage().url == '/')
 
@@ -77,6 +89,28 @@ watch(()=>usePage().url,(pageUrl)=>{
 </script>
 
 <style scoped>
+.loading-animation{
+  height: 100%;
+  width: 100%;
+  left: -100vw;
+  z-index: 30;
+  animation: loadingAnim 1.3s ease-in-out;
+}
+@keyframes loadingAnim{
+  0%{left: -100vw;}
+  50%{left: 70vw;}
+  100%{left: -100vw;}
+}
+.loadslider-enter-active, .loadslider-leave-active {
+  transition: left 1s ease;
+}
+.loadslider-enter-to, .loadslider-enter-from{
+  left: 50vw;
+}
+
+.loadslider-enter-from, .loadslider-leave-to {
+  left: -100vw;
+}
 .nav-bottom{
   padding-left: 3%;
 }

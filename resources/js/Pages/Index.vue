@@ -1,7 +1,7 @@
 <template>
   <!-- Index -->
-  <div class="animate-page-enter w-full relative grow p-2">
-    <div class="floaty-1 w-20 absolute z-20 hover:rotate-[30deg] hover:scale-125">
+  <div class="animate-page-enter-flipX w-full relative grow p-2">
+    <div class="floaty-1 absolute z-20 hover:rotate-[30deg] hover:scale-125">
       <img src="/graphics/SmallCube.png" alt="floaty">
     </div>
     <div class="floaty-2 w-14 absolute z-20 hover:rotate-[30deg] hover:scale-125">
@@ -10,10 +10,18 @@
     <div class="graphic-section flex justify-center relative z-10">
       <div class="super-big-text min-[425px]:w-8/12">
         <!-- <h1 class="text-black font-spartan text-[4em] leading-[4rem] min-[1160px]:text-[6em] min-[1160px]:leading-[6rem] min-[1440px]:text-[8rem] min-[1440px]:leading-[7.5rem] font-bold"> -->
-        <h1 class="text-black font-spartan font-bold">
+        <!-- <h1 class="text-black font-spartan font-bold">
           <span class="hover:text-red-400 hover:text-[1.3em] transition-all duration-300 relative inline-block">T</span>ech <span class="hover:text-red-400 hover:text-[1.3em] transition-all duration-300 relative inline-block">d</span>oesn'<span class="hover:text-red-400 hover:text-[1.3em] transition-all duration-300 relative inline-block">t</span>
           <br> h<span class="hover:text-red-400 hover:text-[1.3em] transition-all duration-300 relative inline-block">a</span>ve t<span class="hover:text-red-400 hover:text-[1.3em] transition-all duration-300 relative inline-block">o</span> fe<span class="hover:text-red-400 hover:text-[1.3em] transition-all duration-300 relative inline-block">e</span>l
           <br> c<span class="hover:text-red-400 hover:text-[1.3em] transition-all duration-300 relative inline-block">o</span>m<span class="hover:text-red-400 hover:text-[1.3em] transition-all duration-300 relative inline-block">p</span>lica<span class="hover:text-red-400 hover:text-[1.3em] transition-all duration-300 relative inline-block">t</span>ed
+        </h1> -->
+        <!-- <h1 class="text-black font-spartan font-bold">
+          <span class="hover:text-red-400 hover:text-[1.3em] transition-all duration-300 relative inline-block">C</span>reativity <span class="hover:text-red-400 hover:text-[1.3em] transition-all duration-300 relative inline-block">m</span>eets<span class="hover:text-red-400 hover:text-[1.3em] transition-all duration-300 relative inline-block"></span>
+          <br> f<span class="hover:text-red-400 hover:text-[1.3em] transition-all duration-300 relative inline-block">u</span>nctionality i<span class="hover:text-red-400 hover:text-[1.3em] transition-all duration-300 relative inline-block">n</span><span class="hover:text-red-400 hover:text-[1.3em] transition-all duration-300 relative inline-block"></span>
+          <br> we<span class="hover:text-red-400 hover:text-[1.3em] transition-all duration-300 relative inline-block">b</span> desi<span class="hover:text-red-400 hover:text-[1.3em] transition-all duration-300 relative inline-block">g</span>n <br><span class="hover:text-red-400 hover:text-[1.3em] transition-all duration-300 relative inline-block">e</span>xcellence
+        </h1> -->
+        <h1 class="text-black font-spartan font-bold">
+          Crafting Digital Elegance with Unique Design Solutions.
         </h1>
         <h3 class="sub-text min-[425px]:text-xl mt-6">Simplified Web Solutions</h3>
       </div>
@@ -28,6 +36,10 @@ import AppLayout from "@/Layouts/AppLayout.vue";
 
 defineOptions({layout:AppLayout})
 
+const introMessage1 = "Tech doesn't have to feel complicated";
+const introMessage2 = "Creativity Meets Functionality in Web Design Excellence.";
+
+
 </script>
 
 <style scoped>
@@ -40,10 +52,11 @@ defineOptions({layout:AppLayout})
 }
 .super-big-text h1{
   /* font-size: clamp(1rem, 10vh + 1rem, 8rem); */
-  font-size: clamp(3.2rem, 8vw,9rem);
+  font-size: clamp(2.5rem, 8vw,9rem);
   line-height: 1;
 }
 .floaty-1{
+  width: min(15vw,80px);
   left: 25%;
   top: 0px;
   animation: animateFloaty1 5s ease-in-out infinite;

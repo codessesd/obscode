@@ -1,11 +1,12 @@
 <template>
-  <div class="animate-page-enter w-full max-w-7xl mb-4">
+  <div class="animate-page-enter-slide-up w-full max-w-7xl mb-4">
     <PagesHeader
-      :bigText="headText"
-      :subText="subHead"
+      bigText="Service"
+      redLetter="s"
+      subText="With pride ourselves with quality offerings. Get creative"
     >
     </PagesHeader>
-    <div class="grid grid-cols-3 justify-items-center gap-3">
+    <div class="grid max-[600px]:grid-cols-1 mx-1 max-[768px]:grid-cols-2 grid-cols-3 justify-items-center gap-3">
       <div v-for="service in services" class="shadow-md bg-white/70 w-full max-w-xs min-h-[350px] rounded-xl p-2 pt-10">
         <div :class="service.bg" class="bg-contain bg-no-repeat bg-center w-full h-20 mb-9"></div>
         <h2 class="font-bold text-center text-red-400 mb-5">{{ service.header }}</h2>
@@ -18,9 +19,6 @@
 import AppLayout from '@/Layouts/AppLayout.vue';
 import PagesHeader from '@/Snippets/PagesHeader.vue';
 import { ref } from 'vue';
-
-const headText = "Services"
-const subHead = "Let us take the hastle out of your hands with our premium services"
     
 defineOptions({layout: AppLayout})
 

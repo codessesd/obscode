@@ -1,6 +1,6 @@
 <template>
   <div class="mobile-nav">
-    <div class="bg-white h-7 w-9 mt-1 shadow-xl rounded grid place-items-center py-[5px] px-1 bg-gradient-to-r from-red-400 to-purple-400 active:scale-95 active:ring-gray-400"
+    <div class="hamburger-btn bg-white h-7 w-9 mt-1 shadow-xl rounded grid place-items-center py-[5px] px-1 bg-gradient-to-r from-red-400 to-purple-400 active:scale-95 active:ring-gray-400"
       @click="showMobileMenu = true"
     >
       <!-- <div class="w-10/12 h-1 rounded-full bg-gradient-to-r from-red-400 to-purple-400"></div> -->
@@ -64,6 +64,10 @@ let showMobileMenu = ref(false)
 }
 .v-enter-from, .v-leave-to {
   top: 100vh;
+}
+.hamburger-btn:hover{
+  transform: rotateY(180deg);
+  transition: transform 0.5s ease-in-out;
 }
 </style>
 
