@@ -20,6 +20,8 @@ return new class extends Migration
             $table->timestamp('last_used_at')->nullable();
             $table->timestamp('expires_at')->nullable();
             $table->timestamps();
+
+            $table->index(['tokenable_type'], 'personal_access_tokens_tokenable_type_index', 'mysql', ['length' => ['tokenable_type' => 191]]);
         });
     }
 
