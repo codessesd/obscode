@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
@@ -21,7 +22,7 @@ return new class extends Migration
             $table->timestamp('expires_at')->nullable();
             $table->timestamps();
 
-            $table->index(['tokenable_type'], 'personal_access_tokens_tokenable_type_index', 'mysql', ['length' => ['tokenable_type' => 191]]);
+            DB::statement('CREATE INDEX personal_access_tokens_tokenable_type_index ON personal_access_tokens (tokenable_type(191))');
         });
     }
 
