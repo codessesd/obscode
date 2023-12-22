@@ -14,15 +14,14 @@ return new class extends Migration
     {
         Schema::create('personal_access_tokens', function (Blueprint $table) {
             $table->id();
-            $table->morphs('tokenable');
+            $table->unsignedBigInteger('tokenable_id');
+            $table->string('tokenable_type');
             $table->string('name',150);
             $table->string('token', 64)->unique();
             $table->text('abilities')->nullable();
             $table->timestamp('last_used_at')->nullable();
             $table->timestamp('expires_at')->nullable();
             $table->timestamps();
-
-            DB::statement('CREATE INDEX personal_access_tokens_tokenable_type_index ON personal_access_tokens (tokenable_type(191))');
         });
     }
 
