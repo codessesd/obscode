@@ -14,6 +14,12 @@ Add the line vite build --ssr in the script section of package.json e.g. "build"
 Add this to package.json under script tag to automatically copy files from public/build to public_html/build during build
 "copy-files": "cp -R public/build public_html/build"
 
+## Have a blog/FAQ section
+<b>Topics</b>
+- How does hosting with us work?
+  Buy and host with us.
+  What is a domain?
+
 ## About Laravel
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 

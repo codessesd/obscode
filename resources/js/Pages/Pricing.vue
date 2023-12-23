@@ -62,7 +62,7 @@ defineOptions({layout: AppLayout})
     currency:"R",
     frequency:"From",
     action: 'Get Quote',
-    features:['Limited customization','First 2 hours Maintenance free','Choose own hosting provider']},
+    features:['Limited customization','First 1 hours Maintenance free','Host with us', 'cPanel']},
     {title:"Elegant",
     special:"",
     description:"Get a custom website built from the ground up for fit your unique needs.",
@@ -70,7 +70,7 @@ defineOptions({layout: AppLayout})
     currency:"",
     frequency:"",
     action: 'Get Quote',
-    features:['Simple Database','Full customization','First 5 hours maintenance on us','Choose own hosting provider','24/7 support']},
+    features:['Simple Database Needs','Full customization','First 4 hours maintenance on us','Host with us','24/7 support']},
     {title:"Web Applications",
     special:"",
     description:"Transform ideas into powerful, tailored web apps for your unique needs with custom design built from the ground up to your exact specifications",
@@ -78,7 +78,7 @@ defineOptions({layout: AppLayout})
     currency:"",
     frequency:"",
     action: 'Get Quote',
-    features:['Complex database requirements','Increased user interaction','Full customization','First 5 hours maintenance on us','Choose own hosting provider','24/7 support']},
+    features:['Complex database requirements','Increased user interaction','Full customization','First 5 hours maintenance on us','Host with us','24/7 support']},
   ])
 
 const eCommerce = ref([
@@ -89,7 +89,7 @@ const eCommerce = ref([
     currency:"",
     frequency:"",
     action: 'Get Quote',
-    features:['Free first consultaion','Shopping cart','24/7 support','First 5 hours maintenance on us','Choose own hosting provider']
+    features:['Free first consultaion','Shopping cart','24/7 support','First 5 hours maintenance on us','Host with us']
   },
   { title:"Elegant",
     special:"",
@@ -98,7 +98,7 @@ const eCommerce = ref([
     currency:"",
     frequency:"",
     action: 'Get Quote',
-    features:['Free first consultaion','Shopping cart','24/7 support','First 5 hours maintenance on us','Choose own hosting provider']
+    features:['Free first consultaion','Shopping cart','24/7 support','First 5 hours maintenance on us','Host with us']
   },
   { title:"CRM",
     special:"",
@@ -107,8 +107,20 @@ const eCommerce = ref([
     currency:"",
     frequency:"",
     action: 'Get Quote',
-    features:['Free first consultaion','24/7 support','First 5 hours maintenance on us','Choose own hosting provider']
+    features:['Free first consultaion','24/7 support','First 5 hours maintenance on us','Host with us']
   },
   
-])    
+])
+
+const hosting = ref([
+{ title:"Bronze",
+  special:"",
+  description:"Basic hosting",
+  amount:'49',
+  currency:"R",
+  frequency:"month",
+  action: 'Get Quote',
+  features:['1 000 MB Storage', '5 email accounts','1 MySQL Database']
+  },
+]);
 </script>

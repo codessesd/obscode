@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="Discover elegant digital solutions with our offerings. From custom web apps to stunning websites, e-commerce solutions, and seamless hosting – we bring your vision to life with creativity and precision. Elevate your online presence today!">
+        <meta name="description" content="Discover elegant web solutions. From custom web apps to stunning websites, e-commerce solutions, and seamless hosting – we bring your vision to life with creativity and precision. Elevate your online presence today!">
 
         <!-- <title inertia>{{ config('app.name', 'Obscode') }}</title> -->
         <title>Obscode</title>
@@ -14,14 +14,14 @@
         <!-- Open Graph / Facebook -->
         <meta property="og:type" content="website">
         <meta property="og:title" content="Obscode">
-        <meta property="og:description" content="Discover elegant digital solutions with our offerings. From custom web apps to stunning websites, e-commerce solutions, and seamless hosting – we bring your vision to life with creativity and precision. Elevate your online presence today!">
+        <meta property="og:description" content="Discover elegant web solutions. From custom web apps to stunning websites, e-commerce solutions, and seamless hosting – we bring your vision to life with creativity and precision. Elevate your online presence today!">
         <meta property="og:url" content="https://obscode.co.za">
         <meta property="og:image" content="https://obscode.co.za/images/og.png">
 
         <!-- Twitter -->
         <meta name="twitter:card" content="summary_large_image">
         <meta name="twitter:title" content="Obscode">
-        <meta name="twitter:description" content="Discover elegant digital solutions with our offerings. From custom web apps to stunning websites, e-commerce solutions, and seamless hosting – we bring your vision to life with creativity and precision. Elevate your online presence today!">
+        <meta name="twitter:description" content="Discover elegant web solutions. From custom web apps to stunning websites, e-commerce solutions, and seamless hosting – we bring your vision to life with creativity and precision. Elevate your online presence today!">
         <meta name="twitter:image" content="https://obscode.co.za/images/twitter.png">
 
 
