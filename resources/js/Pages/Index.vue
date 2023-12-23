@@ -21,7 +21,7 @@
           <br> we<span class="hover:text-red-400 hover:text-[1.3em] transition-all duration-300 relative inline-block">b</span> desi<span class="hover:text-red-400 hover:text-[1.3em] transition-all duration-300 relative inline-block">g</span>n <br><span class="hover:text-red-400 hover:text-[1.3em] transition-all duration-300 relative inline-block">e</span>xcellence
         </h1> -->
         <h1 class="text-black font-spartan font-bold">
-          Crafting Digital Elegance with Unique Design Solutions.
+          Crafting Digital Solutions with Unique Elegant Designs.
         </h1>
         <h3 class="sub-text min-[425px]:text-xl mt-6">Simplified Web Solutions</h3>
       </div>
