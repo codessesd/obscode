@@ -76,14 +76,14 @@ let isHomePage = ref(usePage().url == '/')
 let menuItems = ref([{label : 'Home', url : '/', active : usePage().url == '/'},
                       {label : 'Products', url : '/pricing', active : usePage().url.startsWith('/pricing')},
                       {label : 'Services', url : '/services', active : usePage().url.startsWith('/services')},
-                      {label : 'Contact', url : '/contact', active : usePage().url.startsWith('/contact')},
+                      // {label : 'Contact', url : '/contact', active : usePage().url.startsWith('/contact')},
                     ]);
 
 watch(()=>usePage().url,(pageUrl)=>{
     menuItems.value = [{label : 'Home', url : '/', active : pageUrl == '/'},
               {label : 'Products', url : '/pricing', active : pageUrl.startsWith('/pricing')},
               {label : 'Services', url : '/services', active : pageUrl.startsWith('/services')},
-              {label : 'Contact', url : '/contact', active : pageUrl.startsWith('/contact')},
+              // {label : 'Contact', url : '/contact', active : pageUrl.startsWith('/contact')},
              ];
     isHomePage = usePage().url == '/'
   });
