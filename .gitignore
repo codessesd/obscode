@@ -60,7 +60,6 @@ public_ftp
 .spamassassin
 bin
 node_modules
-public_html
 .config
 .htpasswds
 .spamassassinboxenable

@@ -1,6 +1,6 @@
 <template>
   <div class="mobile-nav">
-    <div class="hamburger-btn bg-white h-7 w-9 mt-1 shadow-xl rounded grid place-items-center py-[5px] px-1 bg-gradient-to-r from-red-400 to-purple-400 active:scale-95 active:ring-gray-400"
+    <div class="hamburger-btn bg-white h-9 w-11 mt-1 shadow-xl rounded grid place-items-center py-[5px] px-1 bg-gradient-to-r from-red-400 to-purple-400 active:scale-95 active:ring-gray-400"
       @click="showMobileMenu = true"
     >
       <!-- <div class="w-10/12 h-1 rounded-full bg-gradient-to-r from-red-400 to-purple-400"></div> -->
@@ -27,7 +27,7 @@
             <img class="w-[150px]" src="/graphics/logo750transparent.png" @click="$inertia.visit('/')" alt="logo">
           </div>
           <div class="pr-[5%] pt-10 justify-self-end">
-            <div class="bg-white border border-gray-200 text-black h-7 w-9 mt-2 shadow-xl flex justify-center items-center rounded active:scale-95 active:bg-gray-200"
+            <div class="bg-white border border-gray-200 text-black h-9 w-11 mt-2 shadow-xl flex justify-center items-center rounded active:scale-95 active:bg-gray-200"
             @click="showMobileMenu = false"
             >
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
