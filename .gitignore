@@ -40,7 +40,7 @@ tmp
 .bash_logout
 .gemrc
 .php_history
-index.php
+/index.php
 vendor
 .bash_profile
 .git
@@ -57,7 +57,7 @@ artisan
 mail
 public_ftp
 .composer
-.htaccess
+/.htaccess
 .spamassassin
 bin
 node_modules
