@@ -20,7 +20,7 @@
 
         <!-- Twitter -->
         <meta name="twitter:card" content="summary_large_image">
-        <meta name="twitter:title" content="Your Page Title | Your Company Name">
+        <meta name="twitter:title" content="Obscode">
         <meta name="twitter:description" content="Discover elegant digital solutions with our offerings. From custom web apps to stunning websites, e-commerce solutions, and seamless hosting – we bring your vision to life with creativity and precision. Elevate your online presence today!">
         <meta name="twitter:image" content="https://obscode.co.za/images/twitter.png">
 
