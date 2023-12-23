@@ -1,6 +1,7 @@
 /.phpunit.cache
 /bootstrap/ssr
 /node_modules
+/public/build
 /public/hot
 /public/storage
 /storage/*.key
@@ -17,7 +18,7 @@ yarn-error.log
 /.fleet
 /.idea
 /.vscode
-# Ignore cPanel files and folders
+# Ignore cPanel files and folders under the very rare circumstance you need to commit from remote server
 .cphorde
 .local
 .trash

@@ -10,6 +10,10 @@
 ## Building app in SSR
 Add the line vite build --ssr in the script section of package.json e.g. "build": "vite build && vite build --ssr"
 
+## Script for copying files
+Add this to package.json under script tag to automatically copy files from public/build to public_html/build during build
+"copy-files": "cp -R public/build public_html/build"
+
 ## About Laravel
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
