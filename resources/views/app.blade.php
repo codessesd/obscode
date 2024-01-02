@@ -5,6 +5,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="Discover elegant web solutions. From custom web apps to stunning websites, e-commerce solutions, and seamless hosting – we bring your vision to life with creativity and precision. Elevate your online presence today!">
 
+        <!-- Google site ownership verification -->
+        <meta name="google-site-verification" content="b4bKucdX0MlG8b8xyUsC_PnDrFRhVNYN_EPMfhkpsOU" />
+
         <!-- <title inertia>{{ config('app.name', 'Obscode') }}</title> -->
         <title>Obscode</title>
         <meta name="keywords" content="digital solutions, custom web apps, stunning websites, e-commerce, hosting, website design, beautiful design, obscode">
