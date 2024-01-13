@@ -9,7 +9,7 @@
         <meta name="google-site-verification" content="b4bKucdX0MlG8b8xyUsC_PnDrFRhVNYN_EPMfhkpsOU" />
 
         <!-- <title inertia>{{ config('app.name', 'Obscode') }}</title> -->
-        <title>Obscode</title>
+        {{-- <title>Obscode</title> --}}
         <meta name="keywords" content="digital solutions, custom web apps, stunning websites, e-commerce, hosting, website design, beautiful design, obscode">
         <meta name="author" content="Obscode">
         <meta name="robots" content="index, follow">

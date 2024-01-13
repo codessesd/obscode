@@ -18,7 +18,7 @@ yarn-error.log
 /.fleet
 /.idea
 /.vscode
-# Ignore cPanel files and folders under the very rare circumstance you need to commit from remote server
+# Ignore cPanel files and folders. Only needed under the very rare circumstance you need to commit from remote server
 .cphorde
 .local
 .trash

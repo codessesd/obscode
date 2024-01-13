@@ -1,10 +1,15 @@
 import './bootstrap';
 import '../css/app.css';
 
+import 'primeicons/primeicons.css'
+
 import { createApp, h } from 'vue';
 import { Link, createInertiaApp } from '@inertiajs/vue3';
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
 import { ZiggyVue } from '../../vendor/tightenco/ziggy/dist/vue.m';
+
+// Vue.use(BootstrapVue)
+// Vue.use(BootstrapVueIcons)
 
 // Vuetify
 // import 'vuetify/styles'

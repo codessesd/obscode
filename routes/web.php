@@ -2,6 +2,7 @@
 
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ContactUsController;
 use Inertia\Inertia;
 
 /*
@@ -27,6 +28,10 @@ use Inertia\Inertia;
 Route::inertia('/','Index');
 Route::inertia('/services','Services');
 Route::inertia('/pricing','Pricing');
+Route::inertia('/contact','Contact');
+// Route::post('/contactMessage','ContactController@store');
+// Route::post('/contactMessage',[ContactUs::class,'store']);
+Route::post('/contactMessage',[ContactUsController::class,'store']);
 
 Route::middleware([
     'auth:sanctum',
