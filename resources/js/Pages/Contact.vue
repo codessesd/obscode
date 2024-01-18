@@ -133,7 +133,7 @@ let sendMessage = ()=>{
   // console.log(token)
   // router.post('https://www.google.com/recaptcha/api/siteverify',{secret:secret_key,response:token}).then((resp)=>{console.log(resp.value)})
   // console.log(resp.value)
-  form.post('/contactMessage');
+  form.post('/contactMessage',{preserveScroll:true});
 }
 
 // window.sendMessage = (token)=>{
