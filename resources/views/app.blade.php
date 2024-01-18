@@ -9,7 +9,7 @@
         <meta name="google-site-verification" content="b4bKucdX0MlG8b8xyUsC_PnDrFRhVNYN_EPMfhkpsOU" />
 
         <!-- <title inertia>{{ config('app.name', 'Obscode') }}</title> -->
-        {{-- <title>Obscode</title> --}}
+        <title>Obscode</title>
         <meta name="keywords" content="digital solutions, custom web apps, stunning websites, e-commerce, hosting, website design, beautiful design, obscode">
         <meta name="author" content="Obscode">
         <meta name="robots" content="index, follow">
@@ -37,6 +37,15 @@
         <!-- <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" /> -->
 
         <!-- Scripts -->
+        {{-- reCaptcha v3 --}}
+        {{-- render = site_key works for reCaptcha v3 key. And it will render the reCaptcha sign at the bottom right of the page. --}}
+        {{-- Using reCaptcha v2 keys will not work. --}}
+        
+        {{-- <script src="https://www.google.com/recaptcha/enterprise.js?render=6LepEFApAAAAAPFIBt3oJLo6ON9gORtTk8vVOCbR" async defer ></script> --}}
+
+        {{-- reCaptcha v2 Checkbox --}}
+        <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+        {{-- <script src="https://www.google.com/recaptcha/enterprise.js" async defer></script> --}}
         <!-- @routes -->
         @vite(['resources/js/app.js', "resources/js/Pages/{$page['component']}.vue"])
         @inertiaHead
@@ -44,4 +53,15 @@
     <body class="font-sans antialiased">
         @inertia
     </body>
+
+    <script>
+    </script>
+
+    {{-- <script type="text/javascript">
+      var onloadCallback = function() {
+        grecaptcha.render('reCapture_div', {
+          'sitekey' : '6Leiu1IpAAAAAOQ2x7WfbNk5IUn2wtMyWM5MRIhb'
+        });
+      };
+    </script> --}}
 </html>

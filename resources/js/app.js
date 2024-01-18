@@ -8,20 +8,6 @@ import { Link, createInertiaApp } from '@inertiajs/vue3';
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
 import { ZiggyVue } from '../../vendor/tightenco/ziggy/dist/vue.m';
 
-// Vue.use(BootstrapVue)
-// Vue.use(BootstrapVueIcons)
-
-// Vuetify
-// import 'vuetify/styles'
-// import { createVuetify } from 'vuetify'
-// import * as components from 'vuetify/components'
-// import * as directives from 'vuetify/directives'
-
-// const vuetify = createVuetify({
-//   components,
-//   directives,
-// })
-
 const appName = import.meta.env.VITE_APP_NAME || 'Obscode';
 
 createInertiaApp({

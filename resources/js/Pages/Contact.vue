@@ -1,4 +1,4 @@
-<template lang="">
+<template>
   <div class="animate-page-enter-slide-up w-full max-w-7xl mb-4">
     <PagesHeader
       bigText="Contact"
@@ -7,14 +7,14 @@
     >
     </PagesHeader>
 
-    <div class="bg-white shadow-md rounded-3xl px-4 py-24">
+    <div class="bg-white/80 shadow-md rounded-3xl px-4 py-24 mx-1">
         <!-- <div class="absolute inset-x-0 top-[-10rem] -z-10 transform-gpu blur-xl overflow-hidden  sm:top-[-20rem]" aria-hidden="true">
           <div class="relative left-1/2 -z-10 aspect-[1155/678] w-[36.125rem] max-w-none -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-40rem)] sm:w-[72.1875rem]" style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)" />
         </div> -->
       <div class="mx-auto max-w-2xl text-center">
         <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Message</h2>
       </div>
-      <form @submit.prevent="sendMessage()" class="mx-auto mt-16 max-w-xl sm:mt-20">
+      <form @submit.prevent="sendMessage" class="mx-auto mt-16 max-w-xl sm:mt-20">
         <div class="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
           <div>
             <label for="first-name" class="block text-sm font-semibold leading-6 text-gray-900">First name*</label>
@@ -59,7 +59,7 @@
               <textarea name="message" v-model="form.message" id="message" rows="4" class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-red-300 sm:text-sm sm:leading-6" />
             </div>
           </div>
-          <SwitchGroup as="div" class="flex gap-x-4 sm:col-span-2">
+          <SwitchGroup as="div" class="hidden gap-x-4 sm:col-span-2">
             <div class="flex h-6 items-center">
               <Switch v-model="agreed" :class="[agreed ? 'bg-red-400' : 'bg-gray-200', 'flex w-8 flex-none cursor-pointer rounded-full p-px ring-1 ring-inset ring-gray-900/5 transition-colors duration-200 ease-in-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600']">
                 <span class="sr-only">Agree to policies</span>
@@ -74,13 +74,18 @@
           </SwitchGroup>
         </div>
         <div class="mt-10">
-          <button type="submit" class="block w-full rounded-md bg-red-400 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Let's talk</button>
+          <!-- <button :data-sitekey="siteKey" data-callback="sendMessage" data-action="submit" class="g-recaptcha block w-full rounded-md bg-red-400 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Let's talk</button> -->
+          <div id="reCapture_div"  class="text-gray-400 text-sm italic">reCapture failed to load. Please reload page</div>
+          
+          <!-- <div id="reCapture_div" class="g-recaptcha" data-sitekey="6Leiu1IpAAAAAOQ2x7WfbNk5IUn2wtMyWM5MRIhb" data-action="LOGIN">poy</div> -->
+          <!-- <input type="submit" value="Submit"> -->
+          <button :data-sitekey="siteKey" data-callback="sendMessage" data-action="submit" class="g-recaptcha block w-full mt-10 rounded-md bg-red-400 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Let's talk 2</button>
         </div>
       </form>
     </div>
 
     <div class="flex justify-center mt-20 mx-1">
-      <div class="shadow-lg bg-white/70 w-full min-h-[200px] rounded-xl py-10">
+      <div class="shadow-lg bg-white/70 w-full min-h-[200px] rounded-3xl py-36">
         <!-- <div class="bg-contain bg-no-repeat bg-center w-full h-20 mb-9"></div> -->
         <h2 class="font-bold text-3xl text-center text-red-400 mb-5">Our Details</h2>
         <div class="flex justify-center mt-8">
@@ -96,16 +101,18 @@
 </template>
 
 <script setup>
-import { onMounted, reactive, ref } from 'vue';
+import { onMounted, onUnmounted, reactive, ref } from 'vue';
 import AppLayout from '@/Layouts/AppLayout.vue';
 import { ChevronDownIcon } from '@heroicons/vue/20/solid'
 import { Switch, SwitchGroup, SwitchLabel } from '@headlessui/vue'
 import PagesHeader from '@/Snippets/PagesHeader.vue';
-import { useForm } from '@inertiajs/vue3';
+import { router, useForm } from '@inertiajs/vue3';
+// import { loadEnv } from 'vite';
 
 const agreed = ref(false)
-
 defineOptions({layout: AppLayout})
+
+const siteKey = import.meta.env.VITE_V2_RECAPTCHA_SITE_KEY;
 
 let form = useForm({
   name: '',
@@ -114,19 +121,45 @@ let form = useForm({
   email: '',
   phone: '',
   message: '',
+  token:''
 })
 
-function sendMessage(){
+let sendMessage = ()=>{
+  // grecaptcha.execute(siteKey, {action:'submit'}).then((token) => {}
+  // console.log(grecaptcha.getResponse(siteKey.value))
+  // console.log(secret_key);
+  // token = grecaptcha.getResponse(siteKey.value)
+  form.token = grecaptcha.getResponse(siteKey.value)
+  // console.log(token)
+  // router.post('https://www.google.com/recaptcha/api/siteverify',{secret:secret_key,response:token}).then((resp)=>{console.log(resp.value)})
+  // console.log(resp.value)
   form.post('/contactMessage');
 }
 
-onMounted(() => {
-  const script = document.createElement('script');
-  script.src = 'https://www.google.com/recaptcha/api.js';
-  script.async = true;
-  script.defer = true;
+// window.sendMessage = (token)=>{
+//   console.log("Heaejbn")
+//     form.post('/contactMessage');
+// }
 
-  document.head.appendChild(script);
+
+onMounted(() => {
+  grecaptcha.render('reCapture_div', {
+          'sitekey' : '6Leiu1IpAAAAAOQ2x7WfbNk5IUn2wtMyWM5MRIhb',
+          'action': 'LOGIN',
+          // 'callback': (token)=>{},
+        });
+  // const script = document.createElement('script');
+  // script.src = 'https://www.google.com/recaptcha/enterprise.js?render=6LepEFApAAAAAPFIBt3oJLo6ON9gORtTk8vVOCbR';
+  // // script.src = 'https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit';
+  // script.async = true;
+  // script.defer = true;
+  // document.head.appendChild(script);
+  
+  // recaptchaScript = script;
+
+  const title = document.createElement('title');
+  title.innerText = "Contact Us"
+  document.head.appendChild(title);
 });
 
 </script>
