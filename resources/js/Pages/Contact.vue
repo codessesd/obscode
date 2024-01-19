@@ -79,6 +79,12 @@
           
           <!-- <div id="reCapture_div" class="g-recaptcha" data-sitekey="6Leiu1IpAAAAAOQ2x7WfbNk5IUn2wtMyWM5MRIhb" data-action="LOGIN">poy</div> -->
           <!-- <input type="submit" value="Submit"> -->
+          <template v-if="Object.keys(form.errors).length > 0">
+            <p class="mb-1 mt-8 text-red-500 font-bold">There are some error in the form</p>
+            <ul class=" text-sm text-red-400">
+              <li v-for="error in $page.props.errors">{{ error }}</li>
+            </ul>
+          </template>
           <button :data-sitekey="siteKey" data-callback="sendMessage" data-action="submit" class="g-recaptcha block w-full mt-10 rounded-md bg-red-400 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Let's talk 2</button>
         </div>
       </form>
@@ -101,13 +107,12 @@
 </template>
 
 <script setup>
-import { onMounted, onUnmounted, reactive, ref } from 'vue';
+import { onMounted, ref } from 'vue';
 import AppLayout from '@/Layouts/AppLayout.vue';
 import { ChevronDownIcon } from '@heroicons/vue/20/solid'
 import { Switch, SwitchGroup, SwitchLabel } from '@headlessui/vue'
 import PagesHeader from '@/Snippets/PagesHeader.vue';
-import { router, useForm } from '@inertiajs/vue3';
-// import { loadEnv } from 'vite';
+import { useForm, usePage } from '@inertiajs/vue3';
 
 const agreed = ref(false)
 defineOptions({layout: AppLayout})
@@ -124,38 +129,17 @@ let form = useForm({
   token:''
 })
 
+
 let sendMessage = ()=>{
-  // grecaptcha.execute(siteKey, {action:'submit'}).then((token) => {}
-  // console.log(grecaptcha.getResponse(siteKey.value))
-  // console.log(secret_key);
-  // token = grecaptcha.getResponse(siteKey.value)
   form.token = grecaptcha.getResponse(siteKey.value)
-  // console.log(token)
-  // router.post('https://www.google.com/recaptcha/api/siteverify',{secret:secret_key,response:token}).then((resp)=>{console.log(resp.value)})
-  // console.log(resp.value)
   form.post('/contactMessage',{preserveScroll:true});
 }
-
-// window.sendMessage = (token)=>{
-//   console.log("Heaejbn")
-//     form.post('/contactMessage');
-// }
-
 
 onMounted(() => {
   grecaptcha.render('reCapture_div', {
           'sitekey' : '6Leiu1IpAAAAAOQ2x7WfbNk5IUn2wtMyWM5MRIhb',
           'action': 'LOGIN',
-          // 'callback': (token)=>{},
         });
-  // const script = document.createElement('script');
-  // script.src = 'https://www.google.com/recaptcha/enterprise.js?render=6LepEFApAAAAAPFIBt3oJLo6ON9gORtTk8vVOCbR';
-  // // script.src = 'https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit';
-  // script.async = true;
-  // script.defer = true;
-  // document.head.appendChild(script);
-  
-  // recaptchaScript = script;
 
   const title = document.createElement('title');
   title.innerText = "Contact Us"
