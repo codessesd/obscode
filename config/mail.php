@@ -104,6 +104,7 @@ return [
         'name' => env('MAIL_FROM_NAME', 'Example'),
     ],
 
+    'site_email_address' => env('SITE_EMAIL_ADDRESS', 'hello@obscode.co.za'),
     /*
     |--------------------------------------------------------------------------
     | Markdown Mail Settings

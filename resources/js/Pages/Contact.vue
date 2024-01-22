@@ -129,8 +129,8 @@ let form = useForm({
   token:''
 })
 
-
 let sendMessage = ()=>{
+  usePage().props.errors = {};
   form.token = grecaptcha.getResponse(siteKey.value)
   form.post('/contactMessage',{preserveScroll:true});
 }

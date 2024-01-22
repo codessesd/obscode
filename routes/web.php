@@ -29,6 +29,9 @@ Route::inertia('/','Index');
 Route::inertia('/services','Services');
 Route::inertia('/pricing','Pricing');
 Route::inertia('/contact','Contact');
+// Route::get('testContact', fn()=>view('emails/contactUs'));
+// Route::inertia('testContact','Contact');
+
 // Route::post('/contactMessage','ContactController@store');
 // Route::post('/contactMessage',[ContactUs::class,'store']);
 Route::post('/contactMessage',[ContactUsController::class,'store']);
