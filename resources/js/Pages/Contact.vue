@@ -88,7 +88,8 @@
           </SwitchGroup>
         </div>
         <div class="mt-10">
-          <div id="reCapture_div"  class="text-red-400 text-sm italic">reCapture failed to load. Please reload page</div>
+          <div v-if="reCaptchaStatus === false" class="text-red-400 text-sm italic">Loading reCAPTCHA...</div>
+          <div id="reCapture_div"></div>
           
           <!-- <input type="submit" value="Submit"> -->
           <template v-if="Object.keys(form.errors).length > 0">
@@ -169,19 +170,28 @@ let sendMessage = ()=>{
   });
 }
 
+// let reCaptureStatus = ref({status:false, message:'Loading reCAPTCHA...'});
+let reCaptchaStatus = ref(false);
+let reCAPTCHAisRendered =  false;
+
 onMounted(() => {
-  grecaptcha.ready(() => {
-    console.log('reCapture ready to use')
-    grecaptcha.render('reCapture_div', {
+    setInterval(() => {
+      if(reCaptchaLoaded && !reCAPTCHAisRendered){
+        reCAPTCHAisRendered = true;
+        reCaptchaStatus.value = true;
+        grecaptcha.render('reCapture_div', {
             'sitekey' : '6Leiu1IpAAAAAOQ2x7WfbNk5IUn2wtMyWM5MRIhb',
             'action': 'LOGIN',
           });
-  })
+      }
+    }, 400);
 
   const title = document.createElement('title');
   title.innerText = "Contact Us"
   document.head.appendChild(title);
 });
+
+
 
 </script>
 <style lang="">
