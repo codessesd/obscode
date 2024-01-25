@@ -88,7 +88,7 @@
           </SwitchGroup>
         </div>
         <div class="mt-10">
-          <div v-if="reCaptchaStatus === false" class="text-red-400 text-sm italic">Loading reCAPTCHA...</div>
+          <div v-if="reCaptchaRendered === false" class="text-red-400 text-sm italic">Loading reCAPTCHA...</div>
           <div id="reCapture_div"></div>
           
           <!-- <input type="submit" value="Submit"> -->
@@ -123,7 +123,7 @@
 </template>
 
 <script setup>
-import { onMounted, ref } from 'vue';
+import { onMounted, ref, watch } from 'vue';
 import AppLayout from '@/Layouts/AppLayout.vue';
 import { ChevronDownIcon } from '@heroicons/vue/20/solid'
 import { Switch, SwitchGroup, SwitchLabel } from '@headlessui/vue'
@@ -170,26 +170,34 @@ let sendMessage = ()=>{
   });
 }
 
-// let reCaptureStatus = ref({status:false, message:'Loading reCAPTCHA...'});
-let reCaptchaStatus = ref(false);
-let reCAPTCHAisRendered =  false;
+let reCaptchaRendered = ref(false);
+let intervalId;
 
 onMounted(() => {
-    setInterval(() => {
-      if(reCaptchaLoaded && !reCAPTCHAisRendered){
-        reCAPTCHAisRendered = true;
-        reCaptchaStatus.value = true;
-        grecaptcha.render('reCapture_div', {
-            'sitekey' : '6Leiu1IpAAAAAOQ2x7WfbNk5IUn2wtMyWM5MRIhb',
-            'action': 'LOGIN',
-          });
-      }
-    }, 400);
-
-  const title = document.createElement('title');
-  title.innerText = "Contact Us"
-  document.head.appendChild(title);
+  intervalId = setInterval(() => {
+    if(reCaptchaLoaded && !reCaptchaRendered.value){
+      console.log('on Moounted function')
+      grecaptcha.render('reCapture_div', {
+        'sitekey' : '6Leiu1IpAAAAAOQ2x7WfbNk5IUn2wtMyWM5MRIhb',
+        'action': 'LOGIN',
+      });
+      reCaptchaRendered.value = true;
+    }
+  }, 400);
 });
+
+watch(()=>reCaptchaRendered.value,(newValue)=>{
+  if(newValue){
+    clearInterval(intervalId)
+  }
+})
+
+onMounted(()=>{
+  const title = document.createElement('title');
+  document.head.appendChild(title);
+  title.innerText = "Contact Us"
+})
+
 
 
 

@@ -44,7 +44,7 @@
         {{-- <script src="https://www.google.com/recaptcha/enterprise.js?render=6LepEFApAAAAAPFIBt3oJLo6ON9gORtTk8vVOCbR" async defer ></script> --}}
 
         {{-- reCaptcha v2 Checkbox --}}
-        <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback" async defer></script>
+        <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>
         {{-- <script src="https://www.google.com/recaptcha/enterprise.js" async defer></script> --}}
         <!-- @routes -->
         @vite(['resources/js/app.js', "resources/js/Pages/{$page['component']}.vue"])
@@ -58,9 +58,10 @@
     </script>
 
     <script type="text/javascript">
+      console.log('The top script')
       let reCaptchaLoaded = false;
       var onloadCallback = function() {
-        //console.log('grecaptcha script loaded successfully');
+        console.log('grecaptcha script loaded successfully');
         reCaptchaLoaded = true;
       };
     </script>
