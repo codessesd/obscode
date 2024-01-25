@@ -54,7 +54,6 @@ www
 .gitignore
 .softaculous
 artisan
-mail
 public_ftp
 .composer
 /.htaccess

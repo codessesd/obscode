@@ -100,11 +100,11 @@ return [
   */
 
   'from' => [
-    'address' => env('MAIL_FROM_ADDRESS', 'hello@example.com'),
+    'address' => env('MAIL_FROM_ADDRESS', 'hello@obscode.co.za'),
     'name' => env('MAIL_FROM_NAME', 'Example'),
   ],
 
-  'site_email_address' => env('SITE_EMAIL_ADDRESS', 'hello@obscode.co.za'),
+  'global_email_address' => 'hello@obscode.co.za',
   /*
   |--------------------------------------------------------------------------
   | Markdown Mail Settings

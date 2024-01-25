@@ -30,11 +30,6 @@ Route::inertia('/services','Services');
 Route::inertia('/pricing','Pricing');
 Route::inertia('/contact','Contact');
 Route::post('/contact',[ContactUsController::class,'store']);
-// Route::get('testContact', fn()=>view('vendor/mail/html/message'));
-// Route::inertia('testContact','Contact');
-
-// Route::post('/contactMessage','ContactController@store');
-// Route::post('/contactMessage',[ContactUs::class,'store']);
 
 Route::middleware([
     'auth:sanctum',

@@ -58,10 +58,8 @@
     </script>
 
     <script type="text/javascript">
-      console.log('The top script')
       let reCaptchaLoaded = false;
       var onloadCallback = function() {
-        console.log('grecaptcha script loaded successfully');
         reCaptchaLoaded = true;
       };
     </script>

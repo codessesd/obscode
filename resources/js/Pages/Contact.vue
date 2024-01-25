@@ -33,44 +33,37 @@
           <div>
             <label for="first-name" class="block text-sm font-semibold leading-6 text-gray-900">First name*</label>
             <div class="mt-2.5">
-              <input type="text" v-model="form.name" name="first-name" id="first-name" autocomplete="given-name" class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-red-300 sm:text-sm sm:leading-6" />
+              <input type="text" v-model="form.name" maxlength="50" name="first-name" id="first-name" autocomplete="given-name" class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-red-300 sm:text-sm sm:leading-6" />
             </div>
           </div>
           <div>
             <label for="last-name" class="block text-sm font-semibold leading-6 text-gray-900">Last name</label>
             <div class="mt-2.5">
-              <input type="text" v-model="form.lastname" name="last-name" id="last-name" autocomplete="family-name" class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-red-300 sm:text-sm sm:leading-6" />
+              <input type="text" v-model="form.lastname" maxlength="50" name="last-name" id="last-name" autocomplete="family-name" class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-red-300 sm:text-sm sm:leading-6" />
             </div>
           </div>
           <div class="sm:col-span-2">
             <label for="company" class="block text-sm font-semibold leading-6 text-gray-900">Company</label>
             <div class="mt-2.5">
-              <input type="text" v-model="form.company" name="company" id="company" autocomplete="organization" class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-red-300 sm:text-sm sm:leading-6" />
+              <input type="text" v-model="form.company" maxlength="50" name="company" id="company" autocomplete="organization" class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-red-300 sm:text-sm sm:leading-6" />
             </div>
           </div>
           <div class="sm:col-span-2">
             <label for="email" class="block text-sm font-semibold leading-6 text-gray-900">Email*</label>
             <div class="mt-2.5">
-              <input type="email" v-model="form.email" name="email" id="email" autocomplete="email" class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-red-300 sm:text-sm sm:leading-6" />
+              <input type="email" v-model="form.email" maxlength="100" name="email" id="email" autocomplete="email" class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-red-300 sm:text-sm sm:leading-6" />
             </div>
           </div>
           <div class="sm:col-span-2">
             <label for="phone-number" class="block text-sm font-semibold leading-6 text-gray-900">Phone number</label>
             <div class="relative mt-2.5">
-              <div class="absolute inset-y-0 left-0 flex items-center">
-                <label for="country" class="sr-only">Country</label>
-                <select id="country" name="country" class="h-full rounded-md border-0 bg-transparent bg-none py-0 pl-4 pr-9 text-gray-400 focus:ring-2 focus:ring-inset focus:ring-red-300 sm:text-sm">
-                  <option>Code +</option>
-                </select>
-                <ChevronDownIcon class="pointer-events-none absolute right-3 top-0 h-full w-5 text-gray-400" aria-hidden="true" />
-              </div>
-              <input type="tel" v-model="form.number" name="phone-number" id="phone-number" autocomplete="tel" class="block w-full rounded-md border-0 px-3.5 py-2 pl-20 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-red-300 sm:text-sm sm:leading-6" />
+              <input type="tel" v-model="form.phone" maxlength="20" name="phone-number" id="phone-number" autocomplete="tel" class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-red-300 sm:text-sm sm:leading-6" />
             </div>
           </div>
           <div class="sm:col-span-2">
-            <label for="message" class="block text-sm font-semibold leading-6 text-gray-900">Message*</label>
+            <label for="message" class="block text-sm font-semibold leading-6 text-gray-900">Message* <span class="text-xs font-normal italic text-slate-400">Charaters: {{ form.message.length }} of 1000</span></label>
             <div class="mt-2.5">
-              <textarea name="message" v-model="form.message" id="message" rows="4" class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-red-300 sm:text-sm sm:leading-6" />
+              <textarea name="message" v-model="form.message" id="message" maxlength="1000" rows="4" class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-red-300 sm:text-sm sm:leading-6" />
             </div>
           </div>
           <SwitchGroup as="div" class="hidden gap-x-4 sm:col-span-2">
@@ -112,8 +105,8 @@
         <h2 class="font-bold text-3xl text-center text-red-400 mb-5">Our Details</h2>
         <div class="flex justify-center mt-8">
           <div class="w-64">
-            <p class="text-lg px-4 mb-4"><i class="w-10 pi pi-whatsapp"></i> (+27) 60 340 0367</p>
-            <p class="text-lg px-4 mb-4"><i class="w-10 pi pi-phone"></i> (+27) 60 340 0367</p>
+            <p class="text-lg px-4 mb-4"><i class="w-10 pi pi-whatsapp"></i>(+27) 60 340 0367</p>
+            <p class="text-lg px-4 mb-4"><i class="w-10 pi pi-phone"></i>(+27) 60 340 0367</p>
             <p class="text-lg px-4 mb-4"><i class="w-10 pi pi-at"></i>hello@obscode.co.za</p>
           </div>
         </div>
@@ -159,12 +152,20 @@ let sendMessage = ()=>{
   form.post('/contact',{
     preserveScroll:true,
     onStart:()=> processing.value = true,
-    onFinish:()=> processing.value = false,
+    onFinish:()=> {
+      processing.value = false
+      grecaptcha.reset(siteKey.value)
+    },
     onSuccess: page=>{
       if(page.props.success){
         showDialog1.value = true;
         dialogTitle.value = "Success";
         dialogContent.value = "Your message has been sent successfully.";
+      }
+      if(page.props.fail){
+        showDialog1.value = true;
+        dialogTitle.value = "Error";
+        dialogContent.value = "There was an error sending your message. Please try again later. " + page.props.fail;
       }
     },
   });
@@ -176,7 +177,6 @@ let intervalId;
 onMounted(() => {
   intervalId = setInterval(() => {
     if(reCaptchaLoaded && !reCaptchaRendered.value){
-      console.log('on Moounted function')
       grecaptcha.render('reCapture_div', {
         'sitekey' : '6Leiu1IpAAAAAOQ2x7WfbNk5IUn2wtMyWM5MRIhb',
         'action': 'LOGIN',
@@ -197,9 +197,6 @@ onMounted(()=>{
   document.head.appendChild(title);
   title.innerText = "Contact Us"
 })
-
-
-
 
 </script>
 <style lang="">
