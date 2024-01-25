@@ -44,7 +44,7 @@
         {{-- <script src="https://www.google.com/recaptcha/enterprise.js?render=6LepEFApAAAAAPFIBt3oJLo6ON9gORtTk8vVOCbR" async defer ></script> --}}
 
         {{-- reCaptcha v2 Checkbox --}}
-        <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+        <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback" async defer></script>
         {{-- <script src="https://www.google.com/recaptcha/enterprise.js" async defer></script> --}}
         <!-- @routes -->
         @vite(['resources/js/app.js', "resources/js/Pages/{$page['component']}.vue"])
@@ -57,11 +57,9 @@
     <script>
     </script>
 
-    {{-- <script type="text/javascript">
+    <script type="text/javascript">
       var onloadCallback = function() {
-        grecaptcha.render('reCapture_div', {
-          'sitekey' : '6Leiu1IpAAAAAOQ2x7WfbNk5IUn2wtMyWM5MRIhb'
-        });
+        console.log('grecaptcha script loaded successfully');
       };
-    </script> --}}
+    </script>
 </html>

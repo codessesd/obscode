@@ -1,12 +1,25 @@
 <template>
   <div class="animate-page-enter-slide-up w-full max-w-7xl mb-4">
+
+    <Dialog
+      v-if="showDialog1"
+      @close="showDialog1=false"
+    >
+      <template #title>
+        {{ dialogTitle }}
+      </template>
+
+      <template #content>
+        {{ dialogContent }}
+      </template>
+    </Dialog>
+
     <PagesHeader
       bigText="Contact"
       redLetter="Us"
       subText="Need to get in touch? We'd love to hear from you!"
     >
     </PagesHeader>
-
     <div class="bg-white/80 shadow-md rounded-3xl px-4 py-24 mx-1">
         <!-- <div class="absolute inset-x-0 top-[-10rem] -z-10 transform-gpu blur-xl overflow-hidden  sm:top-[-20rem]" aria-hidden="true">
           <div class="relative left-1/2 -z-10 aspect-[1155/678] w-[36.125rem] max-w-none -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-40rem)] sm:w-[72.1875rem]" style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)" />
@@ -14,6 +27,7 @@
       <div class="mx-auto max-w-2xl text-center">
         <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Message</h2>
       </div>
+      <!-- The form -->
       <form @submit.prevent="sendMessage" class="mx-auto mt-16 max-w-xl sm:mt-20">
         <div class="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
           <div>
@@ -74,10 +88,8 @@
           </SwitchGroup>
         </div>
         <div class="mt-10">
-          <!-- <button :data-sitekey="siteKey" data-callback="sendMessage" data-action="submit" class="g-recaptcha block w-full rounded-md bg-red-400 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Let's talk</button> -->
-          <div id="reCapture_div"  class="text-gray-400 text-sm italic">reCapture failed to load. Please reload page</div>
+          <div id="reCapture_div"  class="text-red-400 text-sm italic">reCapture failed to load. Please reload page</div>
           
-          <!-- <div id="reCapture_div" class="g-recaptcha" data-sitekey="6Leiu1IpAAAAAOQ2x7WfbNk5IUn2wtMyWM5MRIhb" data-action="LOGIN">poy</div> -->
           <!-- <input type="submit" value="Submit"> -->
           <template v-if="Object.keys(form.errors).length > 0">
             <p class="mb-1 mt-8 text-red-500 font-bold">There are some error in the form</p>
@@ -85,7 +97,10 @@
               <li v-for="error in $page.props.errors">{{ error }}</li>
             </ul>
           </template>
-          <button :data-sitekey="siteKey" data-callback="sendMessage" data-action="submit" class="g-recaptcha block w-full mt-10 rounded-md bg-red-400 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Let's talk 2</button>
+          <button :disabled="processing" :data-sitekey="siteKey" data-callback="sendMessage" data-action="submit" class="g-recaptcha block w-full mt-10 rounded-md bg-red-400 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 transition-all">
+            <span v-if="!processing">Let's talk</span>
+            <i v-if="processing" class="pi pi-spinner pi-spin"></i>
+          </button>
         </div>
       </form>
     </div>
@@ -112,6 +127,8 @@ import AppLayout from '@/Layouts/AppLayout.vue';
 import { ChevronDownIcon } from '@heroicons/vue/20/solid'
 import { Switch, SwitchGroup, SwitchLabel } from '@headlessui/vue'
 import PagesHeader from '@/Snippets/PagesHeader.vue';
+import Dialog from '@/Snippets/Dialog.vue'
+import DialogModal from '@/Components/DialogModal.vue';
 import { useForm, usePage } from '@inertiajs/vue3';
 
 const agreed = ref(false)
@@ -129,17 +146,37 @@ let form = useForm({
   token:''
 })
 
+let showDialog1 = ref(false);
+let processing = ref(false)
+
+let dialogTitle = ref('');
+let dialogContent = ref('');
+
 let sendMessage = ()=>{
   usePage().props.errors = {};
   form.token = grecaptcha.getResponse(siteKey.value)
-  form.post('/contactMessage',{preserveScroll:true});
+  form.post('/contact',{
+    preserveScroll:true,
+    onStart:()=> processing.value = true,
+    onFinish:()=> processing.value = false,
+    onSuccess: page=>{
+      if(page.props.success){
+        showDialog1.value = true;
+        dialogTitle.value = "Success";
+        dialogContent.value = "Your message has been sent successfully.";
+      }
+    },
+  });
 }
 
 onMounted(() => {
-  grecaptcha.render('reCapture_div', {
-          'sitekey' : '6Leiu1IpAAAAAOQ2x7WfbNk5IUn2wtMyWM5MRIhb',
-          'action': 'LOGIN',
-        });
+  grecaptcha.ready(() => {
+    console.log('reCapture ready to use')
+    grecaptcha.render('reCapture_div', {
+            'sitekey' : '6Leiu1IpAAAAAOQ2x7WfbNk5IUn2wtMyWM5MRIhb',
+            'action': 'LOGIN',
+          });
+  })
 
   const title = document.createElement('title');
   title.innerText = "Contact Us"

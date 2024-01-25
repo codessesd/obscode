@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Mail\ContactUsBasic;
+use App\Mail\ContactUsMailable;
 use App\Rules\Recaptcha;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Mail;
+use Inertia\Inertia;
 
 class ContactUsController extends Controller
 {
@@ -27,7 +29,8 @@ class ContactUsController extends Controller
       'message' => $request->message,
     ];
 
-    Mail::to(config('mail.site_email_address'))->send(new ContactUsBasic($data));
-    dd('email sent');
+    Mail::to(config('mail.site_email_address'))->send(new ContactUsMailable($data));
+    
+    return inertia('Contact')->with('success', 'Thank you for contacting us. We will get back to you soon.');
   }
 }
