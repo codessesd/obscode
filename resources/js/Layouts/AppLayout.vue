@@ -2,10 +2,6 @@
   <div class="layout-outer-div relative min-h-screen overflow-hidden">
       <BgArtSimple :showHardBlur="!isHomePage">
       </BgArtSimple>
-      <!-- <div class="h-20 w-20 fixed bg-amber-500" @click="showLoadingDiv = true"></div> -->
-      <!-- <Transition name="loadslider"> -->
-        <!-- <div v-if="showLoadingDiv" class="loading-animation fixed bg-gradient-to-br from-purple-400 to-red-400"></div> -->
-      <!-- </Transition> -->
    <!-- Top Bar -->
     <div class="top-bar top-0 w-full flex justify-between items-center h-28 z-20">
       <!-- logo -->
@@ -41,11 +37,11 @@
     </Transition>
     <!-- Bottom Navigation Mobile -->
     <Transition name="slide">
-          <NavMobileBottom
+          <NavMobileBottom_2
             v-show="isHomePage" class="min-[769px]:hidden"
             :menuItems = "menuItems"
           >
-          </NavMobileBottom>
+          </NavMobileBottom_2>
     </Transition>
     <Footer v-if="!isHomePage"></Footer>
   </div>
@@ -57,7 +53,7 @@ import BgArtSimple from "../Snippets/BackgroundArt/BgArtSimple.vue"
 import NavigationColourBottom from "@/Snippets/NavigationColourBottom.vue";
 import NavigationColourTop from "@/Snippets/NavigationColourTop.vue";
 import NavMobile from "@/Snippets/NavMobile.vue";
-import NavMobileBottom from "@/Snippets/NavMobileBottom.vue";
+import NavMobileBottom_2 from "@/Snippets/NavMobileBottom_2.vue";
 import Footer from "@/Snippets/Footer.vue"
 import { usePage } from "@inertiajs/vue3";
 
@@ -141,14 +137,16 @@ watch(()=>usePage().url,(pageUrl)=>{
   opacity: 0;
 }
 .slide-enter-active, .slide-leave-active{
-transition: bottom 0.8s ease-in-out;
+  transition: bottom 0.8s ease-in-out, opacity 0.8s ease-in-out;
 }
 
 .slide-enter-to, .slide-leave-from{
-bottom: 0px;
+  bottom: 0px;
+  opacity: 1;
 }
 
 .slide-enter-from, .slide-leave-to{
   bottom: -100px;
+  opacity: 0;
 }
 </style>
