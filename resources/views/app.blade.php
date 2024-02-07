@@ -37,16 +37,8 @@
         <!-- <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" /> -->
 
         <!-- Scripts -->
-        {{-- reCaptcha v3 --}}
-        {{-- render = site_key works for reCaptcha v3 key. And it will render the reCaptcha sign at the bottom right of the page. --}}
-        {{-- Using reCaptcha v2 keys will not work. --}}
-        
-        {{-- <script src="https://www.google.com/recaptcha/enterprise.js?render=6LepEFApAAAAAPFIBt3oJLo6ON9gORtTk8vVOCbR" async defer ></script> --}}
-
-        {{-- reCaptcha v2 Checkbox --}}
         <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>
-        {{-- <script src="https://www.google.com/recaptcha/enterprise.js" async defer></script> --}}
-        <!-- @routes -->
+        @routes
         @vite(['resources/js/app.js', "resources/js/Pages/{$page['component']}.vue"])
         @inertiaHead
     </head>

@@ -105,9 +105,9 @@
         <h2 class="font-bold text-3xl text-center text-red-400 mb-5">Our Details</h2>
         <div class="flex justify-center mt-8">
           <div class="w-64">
-            <p class="text-lg px-4 mb-4"><i class="w-10 pi pi-whatsapp"></i>(+27) 60 340 0367</p>
-            <p class="text-lg px-4 mb-4"><i class="w-10 pi pi-phone"></i>(+27) 60 340 0367</p>
-            <p class="text-lg px-4 mb-4"><i class="w-10 pi pi-at"></i>hello@obscode.co.za</p>
+            <p class="text-lg px-4 mb-4"><i class="w-10 pi pi-whatsapp"></i><a href="https://wa.me/+27603400362" target="_blank">(+27) 60 340 0362</a></p>
+            <p class="text-lg px-4 mb-4"><i class="w-10 pi pi-phone"></i><a href="tel:+27603400362" target="_blank">(+27) 60 340 0362</a></p>
+            <p class="text-lg px-4 mb-4"><i class="w-10 pi pi-at"></i><a href="mailto:hello@obscode.co.za" target="_blank">hello@obscode.co.za</a></p>
           </div>
         </div>
       </div>
